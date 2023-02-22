@@ -119,9 +119,78 @@ Hooks are applicable for whole project (for all the feature files)
 Background is applicable for one feature file and varies from file to file
 First Hooks execute then background execute then scenario execute
 
+Class 6 Recap
+Page object model with page initializer class
+In this initializer class, we initialized all objects of the page classes and call the method in common methods class in openbrowser method
+
+We created a collection point in the steps classes--
+For example, methods call from common method, locators call from respective page classes using objects of that class
+
+Background- includes the same steps in the feature file that are common among all scenarios
+Hooks- Pre condition and post condition for entire project: @Before and @After
+
+Parameterization testing:
+--we can add one employee using feature file-- 'instead of passing hardcoded data, we pass values inside the scenario
+suc as "abc", "xyz" etc
+--to increase the speed of testing we use data driven testing concept
+
+Instead of scenario, we use scenario outline with examples table.
+--in examples data, we pass multiple data sets using keys and values
+
+Data table-
+It allows us to pass multiple sets of data without executing background
+
+Outline: Examples table:hooks and background execute every time as per the data set
+Scenario: Data table- hooks and background execute just one time
+
+Note for Excel files handling:
+.xls-HSSF
+.xlsx-XSSF
+
+Class 7
+Recap: parameters passing for adding the employee
+--earlier approach was:hardcoded data
+--passing one set of data from feature file
+--scenario outline: examples table (for passing multiple data sets)
+--data table- hooks, background execute one time for multiple data sets
+--excel- to pass large volume of data
+Cucumber accepts array of byte for screenshots
+
+when we generate any reports, they should be under the Target folder.
+how to open report: right click, open in, browser, chrome
+
+Class8
+Recap: screenshot method- Cucumber accepts array of byte
+To get a unique screenshot name every time, we have implemented timestamp method
+We used scenario class of Cucumber to get the details of execution.
+To generate a report, we use html plugin from the runner class.Reports always generate
+in the target folder.
+We execute our code from pom.xml file, to achieve this we have used maven surefile plugin
+
+Maven Cucumber reporting plugin we use to get more detailed and colorful reports
+
+Log files-When we execute our code, we need to sharpen our debugging skills
+to have quick information about every step of execution, we need messages in the form of report
+To get the details added by us, we need to create log files.
+To create this log file, we use log4j concept
+
+maven lifecycle-
+compile-- convert source code into binary code
+package-- code will be packaged into jar files
+install-- jars will be installed to local repo (.m2)
+deploy-- here jars will go to remote repo
+test-- code will be tested in this life cycle
+clean--this will clean your target folder
 
 
+when you run the test--this will execute, compile, then install, deploy, then test
 
+Database testing:
+1-created database utility:
+a-to get object of resultset
+b-to get object of resultsetmetadata
+c-=to retrieve data from resultset and store in list of maps
 
-
-
+Now we can write test cases:
+1- feature file
+2- write steps in step definitions

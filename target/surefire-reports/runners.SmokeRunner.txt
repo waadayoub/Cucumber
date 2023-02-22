@@ -1,0 +1,15 @@
+-------------------------------------------------------------------------------
+Test set: runners.SmokeRunner
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 2.947 s <<< FAILURE! - in runners.SmokeRunner
+API workflow test.API test case  Time elapsed: 2.457 s  <<< ERROR!
+io.cucumber.junit.UndefinedStepException: 
+The step "a JWT is generated" is undefined. You can implement it using the snippet(s) below:
+
+@Given("a JWT is generated")
+public void a_jwt_is_generated() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+

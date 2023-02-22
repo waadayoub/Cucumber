@@ -1,0 +1,61 @@
+Hamcrest matchers: is a class that contains methods to perform assertions
+jason Path- This is a class
+jsonpath()-This is a method or function that belongs to JsonPath class.
+
+Class7--Recap:
+Rest assured API
+DSL(domain specific language) allows us to send or receive data in json format.
+
+Base uri=base url (in rest assured API) because rest assured Api follows BDD approach
+given-to prepare the request
+when-send the request /hitting the end point
+then-assertion/verification
+
+1-To prepare the request we use one class: RequestSpecification
+2- We use Response to store the response body after hitting the endpoint
+
+Along with Given we provide headers, query parameters, body, etc to prepare the request
+as per the type of method (get, post, etc)
+if post --> body
+if get--> query parameter
+
+JSONPath-->class
+JSONPath() -->method used to provide the functionality of assertions
+Hamcrest matchers-->used to perform assertions
+we use @Test annotation from junit to run all the test cases, but to execute them alphabetically
+we useFixMethodOrder.
+
+C--created the employee
+R--retrieved the created employee
+U--updated the employee
+R--retrieved the updated employee
+D--deleted the employee
+
+under steps package, we have hooks (pre/post conditions), so when we write our steps for API
+hooks will execute, we don't want to execute hooks for API since hooks are for UI. So, we created
+separate steps for AP testing.
+
+in generate token steps class, we have written the method for generating the token
+
+Class 8-
+Recap:
+-integrated (added) rest assured with cucumber
+-to add rest assured, we added a feature file
+-then we added API steps package because we don't want to execute hooks
+-then we implemented a class to generate a token automatically every time
+ -then we used API runner class to only run API test cases
+ -then we created the API constant class to pass all constants of the API
+ -then we created the API payload constant class to pass the body or payload
+
+ Then we performed operations (automation) as follows:
+ C--create, we wrote a scenario for creating the employee and verifying it (via verifying 201 status code)
+ R--retrieve, we retrieved the created employee and verified it (200 status code)
+ U--update, update and verify the employee
+ D--delete, we skipped this one.
+
+ After performing the operations, we identified one more need to pass the body or payload in an easy format.
+ So, we implemented json format in APIPayloadConstant class.
+
+
+
+

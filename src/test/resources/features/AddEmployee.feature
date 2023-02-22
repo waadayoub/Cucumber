@@ -31,8 +31,22 @@ Feature: Add Employee
       |rampal     |chambel   |
       |azam       |asel      |
 
+    @datatable
+Scenario:Adding multiple employees using data table
+When user adds multiple employees and verifies they are added successfully
+|firstName|middleName|lastName|
+      |zara     |Ms        |camilullah|
+      |birgul   |Ms        |ozgin     |
+      |alina    |Ms        |bob       |
 
+      @excel
+      Scenario:Adding multiple employees using excel file
+        When user adds multiple employee from excel using "EmployeeData" and verify it
 
-
-
+  @db @regression
+Scenario: Adding employee and verifying it is stored in database
+     And user enter "Mansoor" and "Raufi"
+    And user captures employee id
+    And user clicks on save button
+      And added employee is displayed in database
 
