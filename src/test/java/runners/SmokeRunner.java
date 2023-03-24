@@ -1,6 +1,7 @@
 package runners;
 
 
+
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
 import org.junit.runner.RunWith;
@@ -14,13 +15,16 @@ import org.junit.runner.RunWith;
         //it will quickly scan all the gherkin steps whether they are implemented or not
         //when we set dry run to false, it starts execution again
         dryRun = false,
-        tags = "@spring3",
-        //to remove irrelevant information from console, you need to set monochrome to true
+        tags = "@sprint3",
+        //to remove irrelavant information from console, you need to set monochrome to true
         monochrome = true,
         //pretty keywords prints the steps in the console to increase readability
         //to generate the reports we need plugin of runner class
-        plugin = {"pretty", "html:target/cucumber.html", "json:target/cucumber.json","rerun:target/failed.txt" }
-)//this failed.txt file calls all scenarios that failed during execution
+
+        plugin = {"pretty", "html:target/cucumber.html", "json:target/cucumber.json",
+                //this failed.txt file holds all the scenarios which are failed  during execution
+                "rerun:target/failed.txt"}
+)
 
 public class SmokeRunner {
 
