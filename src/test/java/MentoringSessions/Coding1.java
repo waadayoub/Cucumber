@@ -16,7 +16,7 @@ public class Coding1 {
     sayHelloBye("jose", 0) ➞ "Bye Jose"*/
 
 
-
+//my Way
    public String Greetings(String name, int num) {
       String str = null;
       if (num == 1) {
