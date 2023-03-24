@@ -1,5 +1,7 @@
 package steps;
 
+import io.cucumber.java.en.When;
+
 public class DatabaseSteps {
     public static String getFnameLnameQuery(){
         String query="select emp_firstname,emp_lastname " +
@@ -7,4 +9,5 @@ public class DatabaseSteps {
                 "where employee_id=";
         return query;
     }
+
 }

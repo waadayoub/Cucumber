@@ -168,4 +168,16 @@ public class AddEmployeeSteps extends CommonMethods {
         Assert.assertEquals(fName, fNameFromDB);
         Assert.assertEquals(lName, lNameFromDB);
     }
+
+    @When("added employee is available in my database")
+    public void added_employee_is_available_in_my_database() {
+        String query="select * from hs_hr_employees where employee_id='"+id+"'";
+        List<Map<String, String>> dataFromDatabase = DBUtility.getListOfMapsFromRset(query);
+        String fNameFromDB = dataFromDatabase.get(0).get("emp_firstname");
+        String lNameFromDB = dataFromDatabase.get(0).get("emp_lastname");
+String empId=dataFromDatabase.get(0).get("employee_id");
+        Assert.assertEquals("saza", fNameFromDB);
+        Assert.assertEquals("andres", lNameFromDB);
+        Assert.assertEquals(id,empId);
+    }
 }

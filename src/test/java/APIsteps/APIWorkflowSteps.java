@@ -44,7 +44,7 @@ public class APIWorkflowSteps {
 
     @Then("the response body contains key {string} and value {string}")
     public void the_response_body_contains_key_and_value(String key, String value) {
-        //arguments for key and value is coming from our feature file, alright sholpan
+        //arguments for key and value is coming from our feature file
         response.then().assertThat().body(key, equalTo(value));
     }
 
