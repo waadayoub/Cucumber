@@ -1,6 +1,4 @@
 package utils;
-
-
 import io.github.bonigarcia.wdm.Config;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.commons.io.FileUtils;
@@ -28,12 +26,12 @@ public class CommonMethods extends PageInitializer {
         ConfigReader.readProperties(Constants.CONFIGURATION_FILEPATH);
         switch (ConfigReader.getPropertyValue("browser")) {
             case "chrome":
-                //using a  headless browser here, does not open the browser but will execute the code (fast)
+                WebDriverManager.chromedriver().setup();
                 ChromeOptions chromeOptions=new ChromeOptions();
                 chromeOptions.addArguments("--no-sandbox");
                 chromeOptions.addArguments("--disable-dev-shm-usage");
                 chromeOptions.setHeadless(true);
-                 driver = new ChromeDriver(chromeOptions);
+                driver = new ChromeDriver(chromeOptions);
                 break;
             case "firefox":
                 WebDriverManager.firefoxdriver().setup();
@@ -46,17 +44,18 @@ public class CommonMethods extends PageInitializer {
         driver.get(ConfigReader.getPropertyValue("url"));
         driver.manage().timeouts().implicitlyWait(Constants.IMPLICIT_WAIT, TimeUnit.SECONDS);
         intializePageObjects();
-        //to configure the file and its pattern, we need toc all the file
+
+        //to confifure the file and pattern of it, we need to call the file
         DOMConfigurator.configure("log4j.xml");
-        Log.startTestCase("My first test case is  this Login test");
+        Log.startTestCase("My first test case is Login test");
         Log.info("My login test is going on");
-        Log.warning("My test case might fail");
+        Log.warning("My test case might be failed");
     }
 
     public static void closeBrowser() {
-      Log.info("My test case is about to complete");
-      Log.endTestCase("This is my login test again");
-      driver.quit();
+        Log.info("My test case is about to complete");
+        Log.endTestCase("This is my login test again");
+        driver.quit();
     }
 
     //we use this method instead of send keys method throughout the framework
@@ -101,6 +100,7 @@ public class CommonMethods extends PageInitializer {
         s.selectByVisibleText(text);
     }
 
+
     public static byte[] takeScreenshot(String fileName) {
         TakesScreenshot ts = (TakesScreenshot) driver;
         byte[] picBytes = ts.getScreenshotAs(OutputType.BYTES);
@@ -116,9 +116,12 @@ public class CommonMethods extends PageInitializer {
         }
         return picBytes;
     }
+
     public static String getTimeStamp(String pattern) {
         Date date = new Date();
         SimpleDateFormat sdf = new SimpleDateFormat(pattern);
         return sdf.format(date);
     }
+
+
 }
